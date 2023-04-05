@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "4",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "2d338c93-989e-4269-9f6d-d36a583c6449"
+				"spark.autotune.trackingId": "a84e8660-1f9b-4519-a9e0-6f31b37c9939"
 			}
 		},
 		"metadata": {
@@ -72,26 +72,8 @@
 				},
 				"source": [
 					"raw_location = \"abfss://Rawfolder@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/*/\"\r\n",
-					"processed_location = \"abfss://Rawfolder@synapseinsivg0104.dfs.core.windows.net/fhir_ndjson/bronze/*/Observation.ndjson\"\r\n",
+					"processed_location = \"abfss://Rawfolder@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/\"\r\n",
 					"write_mode=\"overwrite\""
-				],
-				"execution_count": null
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					}
-				},
-				"source": [
-					"#raw_location = \"abfss://Rawfolder@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/*/\""
 				],
 				"execution_count": null
 			},
@@ -115,42 +97,6 @@
 					"#Observation_df.count()"
 				],
 				"execution_count": 3
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					}
-				},
-				"source": [
-					"# abfss://Rawfolder@synapseinsivg0104.dfs.core.windows.net/fhir_ndjson/1tb/*/Observation.ndjson"
-				],
-				"execution_count": null
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					}
-				},
-				"source": [
-					"#abfss://Rawfolder@synapseinsivg0104.dfs.core.windows.net/fhir_ndjson/bronze/*/Observation.ndjson"
-				],
-				"execution_count": null
 			}
 		]
 	}
