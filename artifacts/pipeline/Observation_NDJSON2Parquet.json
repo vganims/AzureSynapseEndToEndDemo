@@ -1,0 +1,28 @@
+{
+	"name": "Observation_NDJSON2Parquet",
+	"properties": {
+		"activities": [
+			{
+				"name": "Observation_Ingestion_NDJSON2Parquet_Copyvg",
+				"type": "SynapseNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebook": {
+						"referenceName": "Observation_Ingestion_NDJSON2Parquet_Copyvg",
+						"type": "NotebookReference"
+					},
+					"snapshot": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
