@@ -7,7 +7,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "synapseinsivg06",
+			"referenceName": "healthcare",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -15,12 +15,12 @@
 			"driverCores": 16,
 			"executorMemory": "112g",
 			"executorCores": 16,
-			"numExecutors": 2,
+			"numExecutors": 4,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "2",
-				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "0aabbd2c-a173-4fac-b34b-13e1c480bd0c"
+				"spark.dynamicAllocation.minExecutors": "4",
+				"spark.dynamicAllocation.maxExecutors": "4",
+				"spark.autotune.trackingId": "fdac4e11-2229-4d93-bfe9-faf841294e4d"
 			}
 		},
 		"metadata": {
@@ -34,19 +34,12 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/f15a6c21-a4f4-4314-819c-c12d2b130767/resourceGroups/hacksynapsevg/providers/Microsoft.Synapse/workspaces/synapseinsivg04/bigDataPools/synapseinsivg06",
-				"name": "synapseinsivg06",
-				"type": "Spark",
-				"endpoint": "https://synapseinsivg04.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/synapseinsivg06",
+				"id": "/subscriptions/7e416de3-c506-4776-8270-83fd73c6cc37/resourceGroups/syne2e/providers/Microsoft.Synapse/workspaces/health/bigDataPools/healthcare",
+				"name": "healthcare",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				},
-				"sparkVersion": "3.1",
-				"nodeCount": 5,
-				"cores": 16,
-				"memory": 112,
-				"automaticScaleJobs": false
+				}
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -60,7 +53,7 @@
 				},
 				"source": [
 					"StorageName = \"medicaldl\"\r\n",
-					"DatasetSize = \"1tb\""
+					"DatasetSize = \"30tb\""
 				],
 				"execution_count": 2
 			},
