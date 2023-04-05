@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "4",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "fdac4e11-2229-4d93-bfe9-faf841294e4d"
+				"spark.autotune.trackingId": "5d7e1b0f-e6b2-4ec9-849c-7f43c37acdfb"
 			}
 		},
 		"metadata": {
@@ -72,7 +72,7 @@
 				},
 				"source": [
 					"raw_location = \"abfss://Rawfolder@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/*/\"\r\n",
-					"processed_location = \"abfss://Rawfolder@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/bronze\"\r\n",
+					"processed_location = \"abfss://Rawfolder@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/\"\r\n",
 					"write_mode=\"overwrite\""
 				],
 				"execution_count": null
