@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "4",
 				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "b3cc26e4-f21d-4a99-b27a-9a7b169b7dd3"
+				"spark.autotune.trackingId": "91002a6a-ea2b-40c0-80cb-057d6ddae47c"
 			}
 		},
 		"metadata": {
@@ -36,17 +36,10 @@
 			"a365ComputeOptions": {
 				"id": "/subscriptions/7e416de3-c506-4776-8270-83fd73c6cc37/resourceGroups/syne2e/providers/Microsoft.Synapse/workspaces/health/bigDataPools/healthcare",
 				"name": "healthcare",
-				"type": "Spark",
-				"endpoint": "https://health.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/healthcare",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				},
-				"sparkVersion": "3.1",
-				"nodeCount": 3,
-				"cores": 16,
-				"memory": 112,
-				"automaticScaleJobs": false
+				}
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -78,7 +71,7 @@
 					}
 				},
 				"source": [
-					"raw_location = \"abfss://raw@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/*/\"\r\n",
+					"raw_location = \"abfss://raw@\" + StorageName + \".dfs.core.windows.net/Rawfolder/fhir_ndjson/\"+ DatasetSize +\"/*/\"\r\n",
 					"processed_location = \"abfss://processed@\" + StorageName + \".dfs.core.windows.net/fhir/\"+ DatasetSize +\"/\"\r\n",
 					"write_mode=\"overwrite\""
 				],
