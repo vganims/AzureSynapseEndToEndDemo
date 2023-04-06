@@ -3,13 +3,17 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "StorageLS",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"StorageName": "synapseinsivg0104"
+			}
 		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "part-00008-8dfc92f3-d9ab-4c8c-ab44-31b4df0eb1f7-c000.snappy.parquet",
 				"folderPath": "Rawfolder/fhir_ndjson/gold/Observation_main1tb",
 				"fileSystem": "synapseinsivg001"
 			},
