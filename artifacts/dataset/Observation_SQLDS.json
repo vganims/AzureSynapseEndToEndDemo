@@ -27,7 +27,7 @@
 		"type": "AzureSqlDWTable",
 		"schema": [],
 		"typeProperties": {
-			"schema": "fhir",
+			"schema": "dbo",
 			"table": "ObservationMain"
 		}
 	}
