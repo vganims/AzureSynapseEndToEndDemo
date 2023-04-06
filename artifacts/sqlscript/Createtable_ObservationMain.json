@@ -1,0 +1,17 @@
+{
+	"name": "Createtable_ObservationMain",
+	"properties": {
+		"content": {
+			"query": "IF OBJECT_ID('dbo.ObservationMain') IS NOT NULL\nBEGIN\n    DROP TABLE [dbo].[ObservationMain]\nEND\n\nCREATE TABLE [dbo].[ObservationMain]\n( \n\t[Observation_id] [varchar](64)  NULL,\n\t[resourceType] [varchar](100)  NULL,\n\t[issued] VARCHAR(30)  NULL,\n\t[status] [varchar](10)  NULL,\n\t[patient_id_reference] [varchar](64)  NULL,\n\t[encounter_id_reference] [varchar](64)  NULL,\n\t[effectiveDateTime] VARCHAR(30)  NULL,\n\t[valueQuantity_code] [varchar](50)  NULL,\n\t[valueQuantity_system] [varchar](100)  NULL,\n\t[valueQuantity_unit] [varchar](50)  NULL,\n\t[valueQuantity_value] [float]  NULL,\n\t[valueString] [nvarchar](200)  NULL\n)\nWITH\n(\n\tDISTRIBUTION = ROUND_ROBIN,\n\tHEAP\n)",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "synapseinsivg05",
+				"poolName": "synapseinsivg05"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
