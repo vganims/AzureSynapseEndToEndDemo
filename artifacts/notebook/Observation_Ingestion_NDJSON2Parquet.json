@@ -7,7 +7,7 @@
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
-			"referenceName": "healthcare",
+			"referenceName": "synapseinsivg06",
 			"type": "BigDataPoolReference"
 		},
 		"sessionProperties": {
@@ -15,12 +15,12 @@
 			"driverCores": 16,
 			"executorMemory": "112g",
 			"executorCores": 16,
-			"numExecutors": 4,
+			"numExecutors": 2,
 			"conf": {
 				"spark.dynamicAllocation.enabled": "false",
-				"spark.dynamicAllocation.minExecutors": "4",
-				"spark.dynamicAllocation.maxExecutors": "4",
-				"spark.autotune.trackingId": "5d7e1b0f-e6b2-4ec9-849c-7f43c37acdfb"
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "31fb2890-78b3-411a-a318-7073e9dd9c3a"
 			}
 		},
 		"metadata": {
@@ -34,12 +34,19 @@
 				"name": "python"
 			},
 			"a365ComputeOptions": {
-				"id": "/subscriptions/7e416de3-c506-4776-8270-83fd73c6cc37/resourceGroups/syne2e/providers/Microsoft.Synapse/workspaces/health/bigDataPools/healthcare",
-				"name": "healthcare",
+				"id": "/subscriptions/f15a6c21-a4f4-4314-819c-c12d2b130767/resourceGroups/hacksynapsevg/providers/Microsoft.Synapse/workspaces/synapseinsivg04/bigDataPools/synapseinsivg06",
+				"name": "synapseinsivg06",
+				"type": "Spark",
+				"endpoint": "https://synapseinsivg04.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/synapseinsivg06",
 				"auth": {
 					"type": "AAD",
 					"authResource": "https://dev.azuresynapse.net"
-				}
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 5,
+				"cores": 16,
+				"memory": 112,
+				"automaticScaleJobs": false
 			},
 			"sessionKeepAliveTimeout": 30
 		},
@@ -55,7 +62,7 @@
 					"StorageName = \"medicaldl\"\r\n",
 					"DatasetSize = \"30tb\""
 				],
-				"execution_count": 2
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -75,7 +82,7 @@
 					"processed_location = \"abfss://Rawfolder@\" + StorageName + \".dfs.core.windows.net/fhir_ndjson/\"+ DatasetSize +\"/\"\r\n",
 					"write_mode=\"overwrite\""
 				],
-				"execution_count": null
+				"execution_count": 2
 			},
 			{
 				"cell_type": "code",

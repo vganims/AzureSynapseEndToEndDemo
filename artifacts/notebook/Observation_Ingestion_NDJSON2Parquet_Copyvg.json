@@ -20,7 +20,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "4368d852-0928-4db1-914b-72445737c121"
+				"spark.autotune.trackingId": "d183587e-9607-41d8-b2c9-b2734a08965d"
 			}
 		},
 		"metadata": {
@@ -79,10 +79,10 @@
 				},
 				"source": [
 					"raw_location = \"abfss://synapseinsivg001@synapseinsivg0104.dfs.core.windows.net/Rawfolder/fhir_ndjson/1tb/*/Observation.ndjson\"\r\n",
-					"processed_location = \"abfss://synapseinsivg001@synapseinsivg0101.dfs.core.windows.net/Rawfolder/fhir_ndjson/1tb/\"\r\n",
+					"processed_location = \"abfss://synapseinsivg001@synapseinsivg0104.dfs.core.windows.net/Rawfolder/fhir_ndjson/bronze/\"\r\n",
 					"write_mode=\"overwrite\""
 				],
-				"execution_count": 2
+				"execution_count": 5
 			},
 			{
 				"cell_type": "code",
@@ -95,15 +95,16 @@
 						"transient": {
 							"deleting": false
 						}
-					}
+					},
+					"collapsed": false
 				},
 				"source": [
 					"Observation_df = spark.read.option(\"multiline\", \"false\").json(raw_location)\r\n",
-					"Observation_df.write.mode(write_mode).parquet(processed_location+\"Observation/\")\r\n",
-					"#display(Observation_df.limit(10))\r\n",
-					"#Observation_df.count()"
+					"Observation_df.write.mode(write_mode).parquet(processed_location+\"Observation1tb/\")\r\n",
+					"display(Observation_df.limit(10))\r\n",
+					"Observation_df.count()"
 				],
-				"execution_count": 4
+				"execution_count": 6
 			}
 		]
 	}
