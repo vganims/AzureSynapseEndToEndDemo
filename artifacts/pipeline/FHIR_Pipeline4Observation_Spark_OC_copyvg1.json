@@ -3,101 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "NDJSON_Ingestion_Observation",
-				"type": "SynapseNotebook",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"notebook": {
-						"referenceName": "Observation_Ingestion_NDJSON2Parquet",
-						"type": "NotebookReference"
-					},
-					"parameters": {
-						"StorageName": {
-							"value": {
-								"value": "@pipeline().parameters.StorageName",
-								"type": "Expression"
-							},
-							"type": "string"
-						}
-					},
-					"snapshot": true,
-					"sparkPool": {
-						"referenceName": {
-							"value": "@pipeline().parameters.SparkPoolName",
-							"type": "Expression"
-						},
-						"type": "BigDataPoolReference"
-					},
-					"executorSize": null,
-					"conf": {
-						"spark.dynamicAllocation.enabled": null,
-						"spark.dynamicAllocation.minExecutors": null,
-						"spark.dynamicAllocation.maxExecutors": null
-					},
-					"driverSize": null,
-					"numExecutors": null
-				}
-			},
-			{
-				"name": "ObservationParquetFlatten_Large",
-				"type": "SynapseNotebook",
-				"dependsOn": [
-					{
-						"activity": "NDJSON_Ingestion_Observation",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"notebook": {
-						"referenceName": "ObservationParquetFlatten_Large",
-						"type": "NotebookReference"
-					},
-					"parameters": {
-						"StorageName": {
-							"value": {
-								"value": "@pipeline().parameters.StorageName",
-								"type": "Expression"
-							},
-							"type": "string"
-						}
-					},
-					"snapshot": true,
-					"sparkPool": {
-						"referenceName": {
-							"value": "@pipeline().parameters.SparkPoolName",
-							"type": "Expression"
-						},
-						"type": "BigDataPoolReference"
-					},
-					"executorSize": null,
-					"conf": {
-						"spark.dynamicAllocation.enabled": null,
-						"spark.dynamicAllocation.minExecutors": null,
-						"spark.dynamicAllocation.maxExecutors": null
-					},
-					"driverSize": null,
-					"numExecutors": null
-				}
-			},
-			{
 				"name": "Observation_Parquet_large2SQL",
 				"type": "Copy",
 				"dependsOn": [
@@ -187,14 +92,7 @@
 			{
 				"name": "Create Tables",
 				"type": "Script",
-				"dependsOn": [
-					{
-						"activity": "ObservationParquetFlatten_Large",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
