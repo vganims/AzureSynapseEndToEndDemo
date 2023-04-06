@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 1",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [Observation_id]\n,[resourceType]\n,[issued]\n,[status]\n,[patient_id_reference]\n,[encounter_id_reference]\n,[effectiveDateTime]\n,[valueQuantity_code]\n,[valueQuantity_system]\n,[valueQuantity_unit]\n,[valueQuantity_value]\n,[valueString]\n FROM [dbo].[ObservationMain]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "synapseinsivg05",
+				"poolName": "synapseinsivg05"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
