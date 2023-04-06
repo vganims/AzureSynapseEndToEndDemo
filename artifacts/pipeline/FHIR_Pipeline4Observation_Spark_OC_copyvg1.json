@@ -26,12 +26,7 @@
 						"type": "ParquetSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"wildcardFolderPath": {
-								"value": "@concat('fhir/',pipeline().parameters.DatasetSize,'/Observation_main')",
-								"type": "Expression"
-							},
-							"wildcardFileName": "*.parquet",
+							"fileListPath": "synapseinsivg001/Rawfolder/fhir_ndjson/gold",
 							"enablePartitionDiscovery": false
 						}
 					},
