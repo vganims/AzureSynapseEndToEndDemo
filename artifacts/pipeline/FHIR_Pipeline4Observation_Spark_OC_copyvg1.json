@@ -20,11 +20,6 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": {
-								"value": "@concat('fhir/',pipeline().parameters.DatasetSize,'/Observation_main1tb')",
-								"type": "Expression"
-							},
-							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": false
 						}
 					},
@@ -51,18 +46,8 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ObservationMain_LargeParquet",
-						"type": "DatasetReference",
-						"parameters": {
-							"StorageName": {
-								"value": "@pipeline().parameters.StorageName",
-								"type": "Expression"
-							},
-							"DatasetSize": {
-								"value": "@pipeline().parameters.DatasetSize",
-								"type": "Expression"
-							}
-						}
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [

@@ -1,0 +1,69 @@
+{
+	"name": "Parquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "StorageLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "Rawfolder/fhir_ndjson/gold/Observation_main1tb",
+				"fileSystem": "synapseinsivg001"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "Observation_id",
+				"type": "UTF8"
+			},
+			{
+				"name": "resourceType",
+				"type": "UTF8"
+			},
+			{
+				"name": "issued",
+				"type": "UTF8"
+			},
+			{
+				"name": "status",
+				"type": "UTF8"
+			},
+			{
+				"name": "patient_id_reference",
+				"type": "UTF8"
+			},
+			{
+				"name": "encounter_id_reference",
+				"type": "UTF8"
+			},
+			{
+				"name": "effectiveDateTime",
+				"type": "UTF8"
+			},
+			{
+				"name": "valueQuantity_code",
+				"type": "UTF8"
+			},
+			{
+				"name": "valueQuantity_system",
+				"type": "UTF8"
+			},
+			{
+				"name": "valueQuantity_unit",
+				"type": "UTF8"
+			},
+			{
+				"name": "valueQuantity_value",
+				"type": "DOUBLE"
+			},
+			{
+				"name": "valueString",
+				"type": "UTF8"
+			}
+		]
+	}
+}
