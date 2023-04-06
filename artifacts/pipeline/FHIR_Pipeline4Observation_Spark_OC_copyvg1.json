@@ -19,7 +19,7 @@
 						"type": "ParquetSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
+							"fileListPath": "synapseinsivg001/Rawfolder/fhir_ndjson/gold/Observation_main1tb",
 							"enablePartitionDiscovery": false
 						}
 					},
