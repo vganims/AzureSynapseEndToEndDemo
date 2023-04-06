@@ -5,14 +5,7 @@
 			{
 				"name": "Observation_Parquet_large2SQL",
 				"type": "Copy",
-				"dependsOn": [
-					{
-						"activity": "Create Tables",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
+				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -88,41 +81,6 @@
 						}
 					}
 				]
-			},
-			{
-				"name": "Create Tables",
-				"type": "Script",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"linkedServiceName": {
-					"referenceName": "SynapseDedicatedPoolLS",
-					"type": "LinkedServiceReference",
-					"parameters": {
-						"DatabaseName": {
-							"value": "@pipeline().parameters.DatabaseName",
-							"type": "Expression"
-						},
-						"ServerName": {
-							"value": "@pipeline().parameters.ServerName",
-							"type": "Expression"
-						}
-					}
-				},
-				"typeProperties": {
-					"scripts": [
-						{
-							"type": "Query",
-							"text": "IF OBJECT_ID('fhir.ObservationMain') IS NOT NULL\r\nBEGIN\r\n    DROP TABLE [fhir].[ObservationMain]\r\nEND\r\n\r\nCREATE TABLE [fhir].[ObservationMain]\r\n( \r\n\t[Observation_id] [varchar](64)  NULL,\r\n\t[resourceType] [varchar](100)  NULL,\r\n\t[issued] VARCHAR(30)  NULL,\r\n\t[status] [varchar](10)  NULL,\r\n\t[patient_id_reference] [varchar](64)  NULL,\r\n\t[encounter_id_reference] [varchar](64)  NULL,\r\n\t[effectiveDateTime] VARCHAR(30)  NULL,\r\n\t[valueQuantity_code] [varchar](50)  NULL,\r\n\t[valueQuantity_system] [varchar](100)  NULL,\r\n\t[valueQuantity_unit] [varchar](50)  NULL,\r\n\t[valueQuantity_value] [float]  NULL,\r\n\t[valueString] [nvarchar](200)  NULL\r\n)\r\nWITH\r\n(\r\n\tDISTRIBUTION = ROUND_ROBIN,\r\n\tHEAP\r\n)"
-						}
-					]
-				}
 			}
 		],
 		"parameters": {
