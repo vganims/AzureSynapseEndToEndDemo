@@ -19,7 +19,9 @@
 						"type": "ParquetSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
-							"fileListPath": "synapseinsivg001/Rawfolder/fhir_ndjson/gold/Observation_main1tb",
+							"recursive": true,
+							"wildcardFolderPath": "Rawfolder/fhir_ndjson/gold/Observation_main1tb",
+							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": false
 						}
 					},
