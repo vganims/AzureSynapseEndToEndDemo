@@ -17,10 +17,12 @@
 		},
 		"parameters": {
 			"DatabaseName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "synapseinsivg05"
 			},
 			"ServerName": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "synapseinsivg04"
 			}
 		},
 		"annotations": [],
