@@ -1,0 +1,17 @@
+{
+	"name": "QueryObservation_category",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://synapseinsivg0104.dfs.core.windows.net/synapseinsivg001/Rawfolder/fhir_ndjson/gold/fhir/1tb/Observation_category/*.*',\n        FORMAT = 'PARQUET'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
