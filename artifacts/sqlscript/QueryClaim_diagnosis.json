@@ -1,0 +1,17 @@
+{
+	"name": "QueryClaim_diagnosis",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://synapseinsivg0104.dfs.core.windows.net/synapseinsivg001/Rawfolder/fhir_ndjson/gold/fhir/1tb/Claim_diagnosis/part-00000-23546f72-3c87-44f7-9e9f-606019cb8a24-c000.snappy.parquet',\n        FORMAT = 'PARQUET'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
