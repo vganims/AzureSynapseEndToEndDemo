@@ -1,0 +1,17 @@
+{
+	"name": "Querypatient_main_delta",
+	"properties": {
+		"content": {
+			"query": "-- This is auto-generated code\nSELECT\n    TOP 100 *\nFROM\n    OPENROWSET(\n        BULK 'https://synapseinsivg0104.dfs.core.windows.net/synapseinsivg001/Rawfolder/fhir_ndjson/gold/fhir/logicalDW/Patient_main_delta/',\n        FORMAT = 'DELTA'\n    ) AS [result]\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "master",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
