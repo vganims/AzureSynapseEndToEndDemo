@@ -30,7 +30,7 @@
 		"schema": [],
 		"typeProperties": {
 			"schema": "fhir",
-			"table": "PatientAddress"
+			"table": "PatientIdentifier"
 		}
 	}
 }
