@@ -1,0 +1,17 @@
+{
+	"name": "Claim_main_createtable",
+	"properties": {
+		"content": {
+			"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'synapseinsivg001_synapseinsivg0104_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [synapseinsivg001_synapseinsivg0104_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://synapseinsivg001@synapseinsivg0104.dfs.core.windows.net' \n\t)\nGO\n\nCREATE EXTERNAL TABLE fhir.Claim_main (\n\t[Claim_id] nvarchar(100),\n\t[resourceType] nvarchar(100),\n\t[status] nvarchar(100),\n\t[billablePeriod_end] nvarchar(100),\n\t[billablePeriod_start] nvarchar(100),\n\t[created] nvarchar(100),\n\t[patient_display] nvarchar(100),\n\t[patient_id_reference] nvarchar(100),\n\t[prescription_reference] nvarchar(100),\n\t[provider_display] nvarchar(100),\n\t[provider_org_id_reference] nvarchar(100),\n\t[total_currency] nvarchar(100),\n\t[total_value] float,\n\t[use] nvarchar(100)\n\t)\n\tWITH (\n\tLOCATION = 'Rawfolder/fhir_ndjson/gold/fhir/logicalDW/Claim_main_delta',\n\tDATA_SOURCE = [synapseinsivg001_synapseinsivg0104_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM fhir.Claim_main\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "synapseinsivg05",
+				"poolName": "synapseinsivg05"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
