@@ -20,7 +20,7 @@
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
-							"wildcardFolderPath": "Rawfolder/fhir_ndjson/gold/fhir/1tb/PatientIdentifier",
+							"wildcardFolderPath": "Rawfolder/fhir_ndjson/gold/fhir/1tb/Observation_category",
 							"wildcardFileName": "*.parquet",
 							"enablePartitionDiscovery": false
 						}
