@@ -1,0 +1,74 @@
+{
+	"name": "Delta_write_merge_daily",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "synapseinsivg06",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "224g",
+			"driverCores": 32,
+			"executorMemory": "224g",
+			"executorCores": 32,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "eb31c21c-1495-48d0-ab2a-244c68360125"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "python"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/f15a6c21-a4f4-4314-819c-c12d2b130767/resourceGroups/hacksynapsevg/providers/Microsoft.Synapse/workspaces/synapseinsivg04/bigDataPools/synapseinsivg06",
+				"name": "synapseinsivg06",
+				"type": "Spark",
+				"endpoint": "https://synapseinsivg04.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/synapseinsivg06",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.1",
+				"nodeCount": 3,
+				"cores": 32,
+				"memory": 224,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"months = mssparkutils.fs.ls(\"/bronze/incremental_data/Claim/year=2021/\")\r\n",
+					"\r\n",
+					"for m in months:\r\n",
+					" days = mssparkutils.fs.ls(str(m.path))\r\n",
+					"\r\n",
+					" for d in days:\r\n",
+					" jsonpath=d.path+'/*.json'\r\n",
+					"\r\n",
+					" df_json = spark.read.schema(ClaimSchema).json(jsonpath)\r\n",
+					"\r\n",
+					" df_procedure = df_json.select(\"id\",\"procedure\")\r\n",
+					"\r\n",
+					" df_procedure_flat=flatten(df_procedure)\r\n",
+					"\r\n",
+					" df_procedure_flat.write.format(\"delta\").mode(\"append\").save(\"/silver/ClaimProcedure/\")"
+				],
+				"execution_count": null
+			}
+		]
+	}
+}
